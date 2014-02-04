@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TicTacToeApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <div id='logo'><a href="/games">Games.com</a>
+    </div>
+    <nav>
+      <ul>
+        <li><%= link_to 'Games', games_path %></li>
+        <li><%= link_to 'Sign Up', new_player_path %></li>
+        <li><%= link_to 'Log In', new_session_path %></li>
+        <li><% if can? :show, @player %>  
+        <%= link_to 'Profile', @current_player %>
+        <% end %></li>
+      </ul>
+    </nav>
+    <% flash.each do |name, msg| %>
+      <div class="flash-message">
+        <%= msg %>
+      </div>
+    <% end %>
+   
+    <div id='content'>
+    <%= yield %>
+    </div>
+
+  </div>
+
+</body>
+</html>

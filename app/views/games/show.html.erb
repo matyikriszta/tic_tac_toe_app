@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @game.name %>
+</p>
+
+<p>
+  <b>Player1:</b>
+  <%= @game.player1_id %>
+</p>
+
+<p>
+  <b>Player2:</b>
+  <%= @game.player2_id %>
+</p>
+
+<div id='game_container'>
+
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves([ move.square[0], move.id ]) %> #hidden_field, form_tag
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[1] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[2] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[3] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[4] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field(:game.moves.square[5] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[6] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[7] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div id='game_square'>
+    <%= form_for(@game) do |f| %>
+    <%= f.number_field :game.moves.square[8] %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
