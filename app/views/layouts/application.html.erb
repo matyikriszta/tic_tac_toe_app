@@ -9,24 +9,25 @@
 </head>
 <body>
   <div id="container">
-    <div id='logo'><a href="/games">Amoeba</a>
+    <div id="logo"><a href="/games">Amoeba</a>
     </div>
-    <nav>
+    <nav id="nav">
       <ul>
         <li><%= link_to 'Sign Up', new_player_path %></li>
         <li><%= link_to 'Log In', new_session_path %></li>
-        <li><% if can? :show, @player %>  
-        <%= link_to 'Profile', @current_user %>
-        <% end %></li>
       </ul>
     </nav>
 
     <% if current_user %>
     <div class="greeting">
     <p>Hello <%=current_user.email%>!</p></div>  
+    <div class="profile"><% if can? :show, @player %>  
+    <%= link_to 'Profile', @current_user %>
+    <% end %></div>
     <div class="logout">
     <p><%= link_to 'Log out', logout_path %></p></div>
     <% end %>
+
    
     <div id='content'>
     <%= yield %>

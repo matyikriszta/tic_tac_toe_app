@@ -21,7 +21,7 @@
 
   <div id='game_square'>
     <% if @game.square_is_occupied?(0) %>
-    <%= @game.moves %>
+    <%= @game.moves_made_array[0] %>
     <% else %>
     <% if can? :make_move, @game %> 
     <%= button_to 'move here', make_move_game_path(@game, 0) %>
@@ -30,7 +30,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(1) %>
-    b
+    <%= @game.moves_made_array[1] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 1) %>
@@ -39,7 +39,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(2) %>
-    c
+    <%= @game.moves_made_array[2] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 2) %>
@@ -48,7 +48,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(3) %>
-    d
+    <%= @game.moves_made_array[3] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 3) %>
@@ -57,7 +57,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(4) %>
-    k
+    <%= @game.moves_made_array[4] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 4) %>
@@ -66,7 +66,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(5) %>
-    k
+    <%= @game.moves_made_array[5] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 5) %>
@@ -75,7 +75,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(6) %>
-    k
+    <%= @game.moves_made_array[6] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 6) %>
@@ -84,7 +84,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(7) %>
-    k
+    <%= @game.moves_made_array[7] %>
     <% else %>
     <% if can? :make_move, @game %>
      <%= button_to 'move here', make_move_game_path(@game, 7) %>
@@ -93,7 +93,7 @@
   </div>
   <div id='game_square'>
     <% if @game.square_is_occupied?(8) %>
-    k
+    <%= @game.moves_made_array[8] %>
     <% else %>
     <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 8) %>
