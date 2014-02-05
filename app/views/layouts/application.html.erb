@@ -2,28 +2,31 @@
 <html>
 <head>
   <title>TicTacToeApp</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="container">
-    <div id='logo'><a href="/games">Games.com</a>
+    <div id='logo'><a href="/games">Amoeba</a>
     </div>
     <nav>
       <ul>
-        <li><%= link_to 'Games', games_path %></li>
         <li><%= link_to 'Sign Up', new_player_path %></li>
         <li><%= link_to 'Log In', new_session_path %></li>
+        <li><%= link_to 'Games', games_path %></li>
         <li><% if can? :show, @player %>  
-        <%= link_to 'Profile', @current_player %>
+        <%= link_to 'Profile', @current_user %>
         <% end %></li>
       </ul>
     </nav>
-    <% flash.each do |name, msg| %>
-      <div class="flash-message">
-        <%= msg %>
-      </div>
+
+    <% if current_user %>
+    <div class="greeting">
+    <p>Hello <%=current_user.email%>!</p></div>  
+    <div class="logout">
+    <p><%= link_to 'Log out', logout_path %></p></div>
     <% end %>
    
     <div id='content'>

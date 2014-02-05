@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   # GET /games
   # GET /games.json
+  
   load_and_authorize_resource
   
   def index
@@ -26,7 +27,7 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.json
   def new
-    @game = Game.new
+    @game = Game.new :player1 => current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
+
     # update square here?
 
     respond_to do |format|

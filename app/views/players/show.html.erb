@@ -1,4 +1,10 @@
+<!-- profile page -->
+
 <p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @player.player_image.thumb.url %>
+</p>
 
 <p>
   <b>Name:</b>
@@ -8,11 +14,6 @@
 <p>
   <b>Email:</b>
   <%= @player.email %>
-</p>
-
-<p>
-  <b>Player image:</b>
-  <%= @player.player_image %>
 </p>
 
 

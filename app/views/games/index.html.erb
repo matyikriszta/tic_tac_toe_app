@@ -7,8 +7,8 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Player1</th>
-    <th>Player2</th>
+    <th>Player 1</th>
+    <th>Player 2</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,8 +17,8 @@
 <% @games.each do |game| %>
   <tr>
     <td><%= game.name %></td>
-    <td><%= game.player1_id %></td>
-    <td><%= game.player2_id %></td>
+    <td><%= game.player1.try(:name) %></td>
+    <td><%= game.player2.try(:name) %></td>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,6 +26,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Game', new_game_path %>
+<% end %>

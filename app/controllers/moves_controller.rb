@@ -1,9 +1,10 @@
 class MovesController < ApplicationController
   # GET /moves
   # GET /moves.json
+  before_filter :load_game
   load_and_authorize_resource
   def index
-    @moves = Move.all
+    @moves = @game.moves.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,7 @@ class MovesController < ApplicationController
   # GET /moves/1
   # GET /moves/1.json
   def show
-    @move = Move.find(params[:id])
+    @move = @game.moves.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +26,7 @@ class MovesController < ApplicationController
   # GET /moves/new
   # GET /moves/new.json
   def new
-    @move = Move.new
+    @move = @game.moves.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,17 +36,17 @@ class MovesController < ApplicationController
 
   # GET /moves/1/edit
   def edit
-    @move = Move.find(params[:id])
+    @move = @game.moves.find(params[:id])
   end
 
   # POST /moves
   # POST /moves.json
   def create
-    @move = Move.new(params[:move])
+    @move = @game.moves.new(params[:move])
 
     respond_to do |format|
       if @move.save
-        format.html { redirect_to @move, notice: 'Move was successfully created.' }
+        format.html { redirect_to @game, @move], notice: 'Move was successfully created.' }
         format.json { render json: @move, status: :created, location: @move }
       else
         format.html { render action: "new" }
@@ -57,11 +58,11 @@ class MovesController < ApplicationController
   # PUT /moves/1
   # PUT /moves/1.json
   def update
-    @move = Move.find(params[:id])
+    @move = @parent.moves.find(params[:id])
 
     respond_to do |format|
       if @move.update_attributes(params[:move])
-        format.html { redirect_to @move, notice: 'Move was successfully updated.' }
+        format.html { redirect_to [@game, @move], notice: 'Move was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,12 +74,16 @@ class MovesController < ApplicationController
   # DELETE /moves/1
   # DELETE /moves/1.json
   def destroy
-    @move = Move.find(params[:id])
+    @move = @parent.moves.find(params[:id])
     @move.destroy
 
     respond_to do |format|
       format.html { redirect_to moves_url }
       format.json { head :no_content }
     end
+  end
+
+  def load_game
+    @game = Game.find(params[:game_id])
   end
 end

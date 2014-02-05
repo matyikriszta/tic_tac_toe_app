@@ -17,11 +17,13 @@
   </div>
   <div class="field">
     <%= f.label :player1_id %><br />
-    <%= f.number_field :player1_id %>
+    <%= f.text_field :player1_id, :value => current_user.name %>
   </div>
+
+  <!-- Category.all.collect {|category| [ category.name, category.id ] }) -->
   <div class="field">
     <%= f.label :player2_id %><br />
-    <%= f.number_field :player2_id %>
+    <%= f.text_field :player2_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -3,7 +3,11 @@ TicTacToeApp::Application.routes.draw do
 
   resources :moves
 
-  resources :games
+  resources :games do
+    member do
+      post "/make_move/:square", to: "games#make_move"
+    end
+  end
 
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy", as: :logout
