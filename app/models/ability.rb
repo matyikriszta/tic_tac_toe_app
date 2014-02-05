@@ -7,7 +7,7 @@ class Ability
       can :manage, :all
     elsif player.role?(:registered)
       can :read, :all 
-      can [:new, :create, :update, :edit, :show, :destroy], Game
+      can [:new, :create, :update, :edit, :show, :destroy, :make_move], Game
       can [:new, :create, :update, :edit, :show], Move
       can [:new, :create, :update, :edit, :show], Player, :id => player.id
     else

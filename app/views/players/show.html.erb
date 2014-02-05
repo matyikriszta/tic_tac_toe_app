@@ -16,6 +16,10 @@
   <%= @player.email %>
 </p>
 
+<p><% if can? :read, @game %>  
+  <%= link_to 'Game', games_path  %>
+  <% end %></p>
+
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

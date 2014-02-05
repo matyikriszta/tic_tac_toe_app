@@ -86,9 +86,9 @@ class GamesController < ApplicationController
     end
   end
 
-
   def make_move
-        @game = Game.find(params[:id])
-
+    @game = Game.find(params[:id])
+    @game.make_move(current_user, params[:square])
+    redirect_to @game
   end
 end

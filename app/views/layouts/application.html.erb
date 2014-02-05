@@ -15,7 +15,6 @@
       <ul>
         <li><%= link_to 'Sign Up', new_player_path %></li>
         <li><%= link_to 'Log In', new_session_path %></li>
-        <li><%= link_to 'Games', games_path %></li>
         <li><% if can? :show, @player %>  
         <%= link_to 'Profile', @current_user %>
         <% end %></li>

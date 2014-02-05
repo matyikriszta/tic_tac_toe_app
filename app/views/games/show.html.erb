@@ -18,31 +18,49 @@
 <div id='game_container'>
 
   <div id='game_square'>
+    <% if can? :make_move, @game %> 
     <%= button_to 'move here', make_move_game_path(@game, 0) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 1) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 2) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 3) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 4) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 5) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 6) %>
+    <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
      <%= button_to 'move here', make_move_game_path(@game, 7) %>
+     <% end %>
   </div>
   <div id='game_square'>
+    <% if can? :make_move, @game %>
     <%= button_to 'move here', make_move_game_path(@game, 8) %>
+    <% end %>
   </div>
 
 </div>
