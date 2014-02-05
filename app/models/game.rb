@@ -11,15 +11,16 @@ class Game < ActiveRecord::Base
   def make_move(player, square)
     raise 'game is finished' if game_is_finished?
 
-    raise 'you are not my player' unless [player1_id, player2_id].include?(player.id)
+    raise 'you are not my player' unless [player1_id, player2_id].include?(player.id) # works
 
-    raise "it's not your turn" unless whose_turn = player
+    raise "it's not your turn" unless whose_turn == player # works
 
-    raise 'square is not valid' unless square_is_in_bounds
+    raise 'square is not valid' unless square_is_in_bounds?(square) # works
 
-    raise 'square is occupied' if square_is_occupied?(square)
+    raise 'square is occupied' if square_is_occupied?(square) # works
 
     Move.create game_id: self.id, player_id: player.id, square: square, symbol: which_symbol_next
+
   end
 
   private
@@ -27,19 +28,19 @@ class Game < ActiveRecord::Base
     moves.count.even? ? 'X' : '0'
   end
 
-  private
+  public
   def square_is_occupied?(square)
     moves_made_array[square]
   end
 
   public
   def moves_made_array
-    a = [nil, nil, nil, nil, nil, nil, nil, nil, nil] # base case
+    moves_made_array = [nil, nil, nil, nil, nil, nil, nil, nil, nil] # base case
 
     moves.each do |move|
-      a[move.square] = move.symbol
+      moves_made_array[move.square] = move.symbol
     end
-    return a
+    return moves_made_array
   end
 
   private
@@ -59,7 +60,7 @@ class Game < ActiveRecord::Base
     @winning_combinations = [ ['0','1','2'], ['3','4','5'], ['6','7','8'], ['0','3','6'], ['1','4','7'], ['2','5','8'], ['0','4','8'], ['2','4','6'] ]
 
     @winning_combinations.each do |combo|
-      if @places.includes?(combo)
+      if @places.include?(combo)
         if player1 == self.moves.last.player
         @winner = player1
         else
@@ -70,27 +71,26 @@ class Game < ActiveRecord::Base
     end
     unless game_over
     if @places.length < 9
-      if whose_turn? == @player1
-        player1_turn
-      else
-        player2_turn
-      end
+      whose_turn
     else
       end_in_draw
       end
     end  
   end
 
-  private
-  def whose_turn?
-    if moves.last == player1
+  public
+  def whose_turn
+    if moves.count.even?
+      player2
+    else
+      player1
     end
   end
 
   private
   def square_is_in_bounds?(square)
-    (0..8).include?(square)
-      # square >= 0 && square <= 8
+    # (0..8).include?(square)
+    square >= 0 && square <= 8
   end
 
 end
@@ -106,4 +106,3 @@ end
 #   if # it's a completed game, show an error
 #     # if not, do that
 #   end
-end

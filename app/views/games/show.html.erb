@@ -18,26 +18,31 @@
 <div id='game_container'>
 
   <div id='game_square'>
-    <%= form_tag("/make_move/:square", method: "post") do %>
-    <%= hidden_field_tag(:square, "0") %>
-    <%= submit_tag %>
-    <% end %>
+    <%= button_to 'move here', make_move_game_path(@game, 0) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 1) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 2) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 3) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 4) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 5) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 6) %>
   </div>
   <div id='game_square'>
+     <%= button_to 'move here', make_move_game_path(@game, 7) %>
   </div>
   <div id='game_square'>
+    <%= button_to 'move here', make_move_game_path(@game, 8) %>
   </div>
 
 </div>

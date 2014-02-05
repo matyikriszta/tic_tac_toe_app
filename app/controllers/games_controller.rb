@@ -85,4 +85,10 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def make_move
+        @game = Game.find(params[:id])
+
+  end
 end

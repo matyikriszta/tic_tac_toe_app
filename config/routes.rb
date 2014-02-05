@@ -5,7 +5,7 @@ TicTacToeApp::Application.routes.draw do
 
   resources :games do
     member do
-      post "/make_move/:square", to: "games#make_move"
+      post "/make_move/:square", to: "games#make_move", as: 'make_move'
     end
   end
 
