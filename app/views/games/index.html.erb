@@ -1,8 +1,4 @@
-<h2>Current games</h2>
-
-<p><% if can? :create, Game %>
-<%= link_to 'New Game', new_game_path %>
-<% end %></p> 
+<h2>Current games</h2> 
 
 <table>
   <tr>
@@ -11,17 +7,14 @@
     <th>Player 2</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @games.each do |game| %>
   <tr>
-    <td><%= game.name %></td>
-    <td><%= game.player1.try(:name) %></td>
-    <td><%= game.player2.try(:name) %></td>
-    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to game.name, game %></td>
+    <td><%= link_to game.player1.try(:name), game.player1 %></td>
+    <td><%= link_to game.player2.try(:name), game.player2 %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

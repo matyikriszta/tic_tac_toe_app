@@ -14,6 +14,6 @@ TicTacToeApp::Application.routes.draw do
 
   resources :sessions   
 
-  root to: 'games#index'
+  root to: 'players#new'
 
 end

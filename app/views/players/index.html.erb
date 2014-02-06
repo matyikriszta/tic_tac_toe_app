@@ -2,9 +2,9 @@
 
 <table>
   <tr>
+    <th>Player image</th>
     <th>Name</th>
     <th>Email</th>
-    <th>Player image</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +12,9 @@
 
 <% @players.each do |player| %>
   <tr>
+    <td><%= image_tag player.player_image.thumb.url %></td>
     <td><%= player.name %></td>
     <td><%= player.email %></td>
-    <td><%= player.player_image %></td>
     <td><%= link_to 'Show', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
     <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>

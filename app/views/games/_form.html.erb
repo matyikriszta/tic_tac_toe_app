@@ -19,11 +19,9 @@
     <%= f.label :player1_id %><br />
     <%= f.text_field :player1_id, :value => current_user.name %>
   </div>
-
-  <!-- Category.all.collect {|category| [ category.name, category.id ] }) -->
   <div class="field">
     <%= f.label :player2_id %><br />
-    <%= f.text_field :player2_id %>
+    <%= f.select(:player2_id, Player.all.collect {|player| [ player.name, player.id ] }) %>
   </div>
   <div class="actions">
     <%= f.submit %>

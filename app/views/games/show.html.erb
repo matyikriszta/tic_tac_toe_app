@@ -2,107 +2,139 @@
 
 <p>
   <b>Name:</b>
-  <%= @game.name %>
+  <%= @game.name %> <%= @game.result %>
 </p>
 
 <p>
   <b>Player 1:</b>
-  <%= @game.player1.try(:name) %>
+  <%= @game.player1.try(:name)%>
+  <% if @game.whose_turn == @game.player1 %>
+  <%="'s turn" %>
+  <% end %>
 </p>
 
 <p>
   <b>Player 2:</b>
-  <%= @game.player2.try(:name) %>
+  <%= @game.player2.try(:name)%>
+  <% if @game.whose_turn == @game.player2 %>
+  <%="'s turn" %>
+  <% end %>
 </p>
-
-<%= @game.whose_turn.name %>
 
 <div id='game_container'>
 
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(0) %>
-    <%= @game.moves_made_array[0] %>
+      <%= @game.moves_made_array[0] %>
     <% else %>
     <% if can? :make_move, @game %> 
+    <% if @game.whose_turn == current_user %>
     <%= button_to 'move here', make_move_game_path(@game, 0) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(1) %>
     <%= @game.moves_made_array[1] %>
     <% else %>
     <% if can? :make_move, @game %>
+    <% if @game.whose_turn == current_user %>
     <%= button_to 'move here', make_move_game_path(@game, 1) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(2) %>
     <%= @game.moves_made_array[2] %>
     <% else %>
     <% if can? :make_move, @game %>
+    <% if @game.whose_turn == current_user %>
     <%= button_to 'move here', make_move_game_path(@game, 2) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(3) %>
-    <%= @game.moves_made_array[3] %>
+      <%= @game.moves_made_array[3] %>
     <% else %>
     <% if can? :make_move, @game %>
-    <%= button_to 'move here', make_move_game_path(@game, 3) %>
+    <% if @game.whose_turn == current_user %>
+      <%= button_to 'move here', make_move_game_path(@game, 3) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(4) %>
-    <%= @game.moves_made_array[4] %>
+      <%= @game.moves_made_array[4] %>
     <% else %>
     <% if can? :make_move, @game %>
-    <%= button_to 'move here', make_move_game_path(@game, 4) %>
+    <% if @game.whose_turn == current_user %>
+      <%= button_to 'move here', make_move_game_path(@game, 4) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(5) %>
     <%= @game.moves_made_array[5] %>
     <% else %>
     <% if can? :make_move, @game %>
+    <% if @game.whose_turn == current_user %>
     <%= button_to 'move here', make_move_game_path(@game, 5) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(6) %>
     <%= @game.moves_made_array[6] %>
     <% else %>
     <% if can? :make_move, @game %>
+    <% if @game.whose_turn == current_user %>
     <%= button_to 'move here', make_move_game_path(@game, 6) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(7) %>
     <%= @game.moves_made_array[7] %>
     <% else %>
     <% if can? :make_move, @game %>
-     <%= button_to 'move here', make_move_game_path(@game, 7) %>
-     <% end %>
-     <% end %>
+    <% if @game.whose_turn == current_user %>
+    <%= button_to 'move here', make_move_game_path(@game, 7) %>
+    <% end %>
+    <% end %>
+    <% end %>
+    &nbsp;
   </div>
-  <div id='game_square'>
+  <div class='game_square'>
     <% if @game.square_is_occupied?(8) %>
     <%= @game.moves_made_array[8] %>
     <% else %>
     <% if can? :make_move, @game %>
+    <% if @game.whose_turn == current_user %>
     <%= button_to 'move here', make_move_game_path(@game, 8) %>
     <% end %>
     <% end %>
+    <% end %>
+    &nbsp;
   </div>
 
 </div>
 
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<%= link_to 'Back', games_path %> |
+<%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %>

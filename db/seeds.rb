@@ -6,5 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Game.create name: "Game 1", player1_id: 1, player2_id: 2
-Game.create name: "Game 2", player1_id: 4, player2_id: 5
+Player.delete_all
+
+u = Player.new(name: "Kriszta", email: "kriszta@kriszta.com", password: "kriszta", password_confirmation: "kriszta")
+u.role = :admin
+u.save!
+
+Player.create name: "Tim", email: "tim@tim.com", password: "tim", password_confirmation: "tim", role: "registered"
+Player.create name: "Alex", email: "alex@alex.com", password: "alex", password_confirmation: "alex", role: "registered"
+Player.create name: "Michael", email: "michael@michael.com", password: "michael", password_confirmation: "michael", role: "registered"

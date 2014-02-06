@@ -4,13 +4,14 @@ body {
 } 
 
 #container {
-  width: 980px;
+  width: 960px;
   margin: 0 auto;
 }
 
 #logo {
   width: 200px;
   display: inline-block;
+  padding-top: 10px;
 }
 
 #logo a {
@@ -22,7 +23,7 @@ body {
 }
 
 #nav {
-  width: 300px;
+  width: 400px;
   display: inline-block;
   float: right;
   text-align: right;
@@ -38,7 +39,50 @@ body {
 }
 
 #nav a {
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
+}
+
+#content {
+  margin-top: 70px;
+}
+
+#sample_game {
+  display: inline-block;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+}
+
+.sample_game_field {
+  margin-bottom: 4px;
+  background-color: white;
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+}
+
+.xo {
+  color: #eee;
+  font-size: 720%;
+  background-color: white;
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+}
+
+.hidden {
+  color: #FFFFFF;
+  font-size: 720%;
+  background-color: white;
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+}
+
+#sign_up_form {
+  display: inline-block;
+  margin-left: 40px;
 }
 
 #game_container {
@@ -48,9 +92,37 @@ body {
   height: 320px;
 }
 
-#game_square {
+.game_square {
   background-color: white;
   display: inline-block;
   width: 100px;
   height: 100px;
 }
+
+.greeting {
+  float: right;
+}
+
+/*Forms*/
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+label {
+  font-family: 'Open Sans', sans-serif;
+}
+
+input {
+  height: 20px;
+}
+
+
+
+
+
+
+
+
+
+

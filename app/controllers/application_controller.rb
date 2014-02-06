@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def home
-    render text: "Hello."
-  end
-
   rescue_from CanCan::AccessDenied do |exception|
     alert_message = case
     when current_user
@@ -19,6 +15,11 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    @current_user ||= Player.find(session[:player_id]) if session[:player_id]
+    begin
+      @current_user ||= Player.find(session[:player_id]) if session[:player_id]
+    rescue ActiveRecord::RecordNotFound
+      session.delete(:player_id)
+      return nil
+    end
   end
 end

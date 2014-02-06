@@ -5,6 +5,9 @@ class Game < ActiveRecord::Base
   belongs_to :player2, class_name: 'Player'
   has_many :moves
 
+  validates :player1_id, presence: true
+  validates :player2_id, presence: true
+
   # first move is always a cross, therefore odd number of moves are always crosses
   # even numbered moves are 0
 
@@ -22,6 +25,13 @@ class Game < ActiveRecord::Base
 
     moves.create player_id: player.id, square: square, symbol: which_symbol_next
 
+  end
+
+  def result
+    if game_is_finished?
+      return "Tied" if end_in_draw?
+      "Won by #{winner.name}" 
+    end
   end
 
   public
@@ -54,41 +64,24 @@ class Game < ActiveRecord::Base
     moves.length < 9
   end
 
-  #helper methods: winner method 
-
-  private 
-  def winner
-
-
-  end
-
-  # [moves_made_array[0], moves_made_array[1], moves_made_array[2]]
-
   public
   def game_is_finished?
     return true if end_in_draw?
+    return true if game_is_won?
+  end
 
+  def game_is_won?
+      winning_combinations = [ ['0','1','2'], ['3','4','5'], ['6','7','8'], ['0','3','6'], ['1','4','7'], ['2','5','8'], ['0','4','8'], ['2','4','6'] ]
 
-  #   @places = self.moves.map(&:square).sort # [0, 4, 8]
-  #   @winning_combinations = [ ['0','1','2'], ['3','4','5'], ['6','7','8'], ['0','3','6'], ['1','4','7'], ['2','5','8'], ['0','4','8'], ['2','4','6'] ]
+      winning_combinations.detect do |winning_combination|
+        combo_positions = winning_combination.map { |position| moves_made_array[position] }
+        combo_positions.any? && combo_positions.uniq.count == 1
+      end
+  end
 
-  #   @winning_combinations.each do |combo|
-  #     if @places.include?(combo)
-  #       if player1 == self.moves.last.player
-  #       @winner = player1
-  #       else
-  #       @winner = player2
-  #       end
-  #       game_over = true
-  #     end
-  #   end
-  # end
-
-  # should return true if there is a winner or it's a draw
-
-  #TODO: winner method, game_is_finished? method refactor
-
-  # def board_is_full?
+  def winner
+    return nil unless game_is_won?
+    moves.last.player
   end
 
   public

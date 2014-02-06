@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag @player.player_image.thumb.url %>
+  <%= image_tag @player.player_image.profile.url %>
 </p>
 
 <p>
@@ -17,9 +17,11 @@
 </p>
 
 <p><% if can? :read, @game %>  
-  <%= link_to 'Game', games_path  %>
-  <% end %></p>
+  <%= link_to 'Games', games_path  %>
+<% end %></p>
 
+<% if can? :edit, @player %>
+<%= link_to 'Edit', edit_player_path(@player.id) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Back', games_path %>
