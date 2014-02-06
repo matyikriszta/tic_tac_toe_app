@@ -56,7 +56,7 @@ class Game < ActiveRecord::Base
     moves.length == 9
   end
 
-  private
+  public
   def are_there_squares_available?
     moves.length < 9
   end

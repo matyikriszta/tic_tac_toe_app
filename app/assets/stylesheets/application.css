@@ -7,6 +7,7 @@ body {
 #container {
   width: 960px;
   margin: 0 auto;
+  /*border: 1px solid black;*/
 }
 
 /*Logo and nav bar*/
@@ -49,6 +50,11 @@ body {
   color: #343642;
   font-family: 'Open Sans', sans-serif;
   text-decoration: none;
+}
+
+#navigation #add a {
+  color: #EA2E49;
+  font-weight: 800;
 }
 
 #login {
@@ -107,36 +113,50 @@ body {
   height: 128px;
 }
 
+/*Sign up form*/
+
 #sign_up_form {
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 120px;
 }
 
-#signup {
-  width: 80px;
-  height: 26px;
+.signup_button {
+  width: 160px;
+  height: 32px;
   border: none;
   background-color: #EA2E49;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  color: #343642;
+}
+
+#tagline {
+  font-size: 120%;
 }
 
 .greeting {
   float: right;
 }
 
-/*Forms*/
-
 h2 {
   font-family: 'Open Sans', sans-serif;
+  color: #343642;
 }
+
+/*Forms*/
 
 label {
   font-family: 'Open Sans', sans-serif;
 }
 
 input {
+  font-size: 90%;
   height: 30px;
   width: 300px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  padding-left: 10px;
 
 }
 
@@ -161,6 +181,31 @@ input {
   height: 100px;
 }
 
+#current {
+  vertical-align: top;
+  width: 50%;
+  display: inline-block;
+}
+
+#finished {
+  width: 40%;
+  display: inline-block;
+}
+
+.game_name {
+  display: inline-block;
+  width: 100px;
+}
+
+.game_player1 {
+  display: inline-block;
+  width: 80px;
+}
+
+.game_player2 {
+  display: inline-block;
+  width: 80px;
+}
 
 
 

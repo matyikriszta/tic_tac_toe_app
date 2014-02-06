@@ -9,7 +9,11 @@
 </head>
 <body>
   <div id="container">
-    <div id="logo"><a href="/players/new">Amoeba</a>
+    <% unless current_user %>
+      <div id="logo"><a href="/players/new">Amoeba</a>
+    <% else %>
+      <div id="logo"><a href="/games">Amoeba</a>
+    <% end %>
   </div>
   <% unless current_user %>
     <nav id="login">
@@ -28,7 +32,7 @@
         <li><%= link_to 'Games', games_path %></li>
       <% end %>
       <% if can? :create, Game && current_user %>
-        <li id="+"><%= link_to '+', new_game_path %></li>
+        <li id="add"><%= link_to '+', new_game_path %></li>
       <% end %>
       <% if current_user %>
         <li><%= link_to 'Profile', @current_user %></li>
