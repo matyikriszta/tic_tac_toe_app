@@ -12,8 +12,8 @@
 <% @games.each do |game| %>
   <tr>
     <td><%= link_to game.name, game %></td>
-    <td><%= link_to game.player1.try(:name), game.player1 %></td>
-    <td><%= link_to game.player2.try(:name), game.player2 %></td>
+    <td><%= link_to image_tag(game.player1.player_image.thumb.url), game.player1 %></td>
+    <td><%= link_to image_tag(game.player2.player_image.thumb.url), game.player2 %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
   </tr>
 <% end %>

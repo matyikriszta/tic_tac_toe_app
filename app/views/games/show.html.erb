@@ -29,7 +29,7 @@
     <% else %>
     <% if can? :make_move, @game %> 
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 0) %>
+    <%= button_to 'move here', make_move_game_path(@game, 0), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -41,7 +41,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 1) %>
+    <%= button_to 'move here', make_move_game_path(@game, 1), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -53,7 +53,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 2) %>
+    <%= button_to 'move here', make_move_game_path(@game, 2), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -65,7 +65,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-      <%= button_to 'move here', make_move_game_path(@game, 3) %>
+      <%= button_to 'move here', make_move_game_path(@game, 3), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -77,7 +77,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-      <%= button_to 'move here', make_move_game_path(@game, 4) %>
+      <%= button_to 'move here', make_move_game_path(@game, 4), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -89,7 +89,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 5) %>
+    <%= button_to 'move here', make_move_game_path(@game, 5), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -101,7 +101,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 6) %>
+    <%= button_to 'move here', make_move_game_path(@game, 6), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -113,7 +113,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 7) %>
+    <%= button_to 'move here', make_move_game_path(@game, 7), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>
@@ -125,7 +125,7 @@
     <% else %>
     <% if can? :make_move, @game %>
     <% if @game.whose_turn == current_user %>
-    <%= button_to 'move here', make_move_game_path(@game, 8) %>
+    <%= button_to 'move here', make_move_game_path(@game, 8), :class => "game_button" %>
     <% end %>
     <% end %>
     <% end %>

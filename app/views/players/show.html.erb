@@ -16,9 +16,12 @@
   <%= @player.email %>
 </p>
 
-<p><% if can? :read, @game %>  
-  <%= link_to 'Games', games_path  %>
-<% end %></p>
+<p>
+  <b>My games:</b>
+  <% @games.each do |game| %>
+  <%= link_to game.name, game %>
+  <% end %>
+</p>
 
 <% if can? :edit, @player %>
 <%= link_to 'Edit', edit_player_path(@player.id) %> |

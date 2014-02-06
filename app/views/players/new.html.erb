@@ -3,29 +3,28 @@
     <div class="xo">X</div>
   </div>
   <div class="sample_game_field">
-    <div class="hidden">X</div>
-  </div>
-
-  <div class="sample_game_field">
-    <div class="xo">0</div>
-  </div>
-  <div class="sample_game_field">
-    <div class="hidden">X</div>
+    <div class="xo">&nbsp;</div>
   </div>
   <div class="sample_game_field">
     <div class="xo">0</div>
   </div>
   <div class="sample_game_field">
-    <div class="hidden">X</div>
+    <div class="xo">&nbsp;</div>
+  </div>
+  <div class="sample_game_field">
+    <div class="xo">0</div>
+  </div>
+  <div class="sample_game_field">
+    <div class="xo">&nbsp;</div>
   </div>
   <div class="sample_game_field">
     <div class="xo">X</div>
   </div>
   <div class="sample_game_field">
-    <div class="hidden">X</div>
+    <div class="xo">&nbsp;</div>
   </div>
   <div class="sample_game_field">
-    <div class="hidden">X</div>
+    <div class="xo">&nbsp;</div>
   </div>
 </div>
 
@@ -33,26 +32,24 @@
 
 <h2>Sign up</h2>
 
+<p>It will be a ton of fun, promise!</p>
+
 <%= form_for(@player) do |f| %>
 
 <div class="field">
-    <%= f.label :name %><br />
     <%= f.text_field :name, :placeholder => "Name" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
     <%= f.text_field :email, :placeholder => "Your email" %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
     <%= f.password_field :password, :placeholder => "Your password" %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, :placeholder => "Re-enter your password" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div>
+    <%= submit_tag "Sign up", class: "login_button" %>
   </div>
 <% end %>
 

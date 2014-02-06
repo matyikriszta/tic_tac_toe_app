@@ -1,6 +1,7 @@
 body {
   background-color: #eee;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 } 
 
 #container {
@@ -8,40 +9,74 @@ body {
   margin: 0 auto;
 }
 
+/*Logo and nav bar*/
+
 #logo {
-  width: 200px;
+  width: 212px;
   display: inline-block;
-  padding-top: 10px;
 }
 
 #logo a {
+  color: #343642;
   font-family: 'Open Sans', sans-serif;
   font-weight: 800;
   text-decoration: none;
-  font-size: 200%;
+  font-size: 300%;
   text-transform: uppercase;
 }
 
-#nav {
-  width: 400px;
+#logo a:hover {
+  color: #FFFFFF;
+}
+
+#navigation {
+  width: 700px;
   display: inline-block;
   float: right;
   text-align: right;
 }
 
-#nav ul {
+#navigation ul {
 }
 
-#nav li {
+#navigation li {
   background-color: #FFFFFF;
   display: inline;
   padding: 20px;
 }
 
-#nav a {
+#navigation a {
+  color: #343642;
   font-family: 'Open Sans', sans-serif;
   text-decoration: none;
 }
+
+#login {
+  width: 700px;
+  display: inline-block;
+  float: right;
+  text-align: right;
+  margin-top: 5px;
+}
+
+#login li {
+  display: inline;
+  padding-left: 10px;
+}
+
+.login {
+  width: 160px;
+  height: 20px;
+}
+
+.login_button {
+  width: 80px;
+  height: 26px;
+  border: none;
+  background-color: #EA2E49;
+}
+
+/*Content*/
 
 #content {
   margin-top: 70px;
@@ -63,16 +98,8 @@ body {
 }
 
 .xo {
+  font-family: serif;
   color: #eee;
-  font-size: 720%;
-  background-color: white;
-  display: inline-block;
-  width: 128px;
-  height: 128px;
-}
-
-.hidden {
-  color: #FFFFFF;
   font-size: 720%;
   background-color: white;
   display: inline-block;
@@ -85,18 +112,11 @@ body {
   margin-left: 40px;
 }
 
-#game_container {
-  padding-top: 5px;
-  text-align: center;
-  width: 320px;
-  height: 320px;
-}
-
-.game_square {
-  background-color: white;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
+#signup {
+  width: 80px;
+  height: 26px;
+  border: none;
+  background-color: #EA2E49;
 }
 
 .greeting {
@@ -114,7 +134,31 @@ label {
 }
 
 input {
-  height: 20px;
+  height: 30px;
+  width: 300px;
+  margin-bottom: 20px;
+
+}
+
+/*Game board*/
+
+#game_container {
+  padding-top: 5px;
+  text-align: center;
+  width: 320px;
+  height: 320px;
+}
+
+.game_square {
+  background-color: white;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.game_button {
+  width: 100px;
+  height: 100px;
 }
 
 

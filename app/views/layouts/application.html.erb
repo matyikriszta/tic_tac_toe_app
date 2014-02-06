@@ -10,27 +10,39 @@
 <body>
   <div id="container">
     <div id="logo"><a href="/players/new">Amoeba</a>
-    </div>
-    <nav id="nav">
+  </div>
+  <% unless current_user %>
+    <nav id="login">
       <ul>
-        <% if can? :read, Game %>
-          <li><%= link_to 'Games', games_path %></li>
-        <% end %>
-        <% if can? :create, Game %>
-          <li id="+"><%= link_to '+', new_game_path %></li>
-        <% end %>
-        <% if current_user %>
-          <li><%= link_to 'Profile', @current_user %></li>
-        <% else %>
-          <li><%= link_to 'Sign Up', new_player_path %></li>
-        <% end %>
-        <% if current_user %>
-          <li><%= link_to 'Log Out', logout_path %></li>
-        <% else %>
-          <li><%= link_to 'Log In', new_session_path %></li>
-        <% end %>
+        <%= form_tag sessions_path do %>
+        <li><%= text_field_tag :email, params[:email], placeholder: "Email", class: "login" %></li>
+        <li><%= password_field_tag :password, nil ,placeholder: "Password", class: "login" %></li>
+        <li><%= submit_tag "Log in", class: "login_button" %></li>
+      <% end %>
+      <% end %>
+    </nav>
+  <% if current_user %>
+    <nav id="navigation">
+      <ul>
+      <% if can? :read, Game && current_user %>
+        <li><%= link_to 'Games', games_path %></li>
+      <% end %>
+      <% if can? :create, Game && current_user %>
+        <li id="+"><%= link_to '+', new_game_path %></li>
+      <% end %>
+      <% if current_user %>
+        <li><%= link_to 'Profile', @current_user %></li>
+      <% else %>
+        <li><%= link_to 'Sign Up', new_player_path %></li>
+      <% end %>
+      <% if current_user %>
+        <li><%= link_to 'Log Out', logout_path %></li>
+      <% else %>
+        <li><%= link_to 'Log In', new_session_path %></li>
+      <% end %>
       </ul>
     </nav>
+  <% end %>
 
     <% if current_user %>
     <div class="greeting">

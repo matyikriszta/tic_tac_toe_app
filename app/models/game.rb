@@ -8,9 +8,6 @@ class Game < ActiveRecord::Base
   validates :player1_id, presence: true
   validates :player2_id, presence: true
 
-  # first move is always a cross, therefore odd number of moves are always crosses
-  # even numbered moves are 0
-
   def make_move(player, square)
 
     raise 'you are not my player' unless [player1_id, player2_id].include?(player.id)
@@ -71,7 +68,16 @@ class Game < ActiveRecord::Base
   end
 
   def game_is_won?
-      winning_combinations = [ ['0','1','2'], ['3','4','5'], ['6','7','8'], ['0','3','6'], ['1','4','7'], ['2','5','8'], ['0','4','8'], ['2','4','6'] ]
+      winning_combinations = 
+      [ [0,1,2], 
+      [3,4,5], 
+      [6,7,8], 
+      [0,3,6], 
+      [1,4,7], 
+      [2,5,8], 
+      [0,4,8], 
+      [2,4,6] 
+      ]
 
       winning_combinations.detect do |winning_combination|
         combo_positions = winning_combination.map { |position| moves_made_array[position] }
