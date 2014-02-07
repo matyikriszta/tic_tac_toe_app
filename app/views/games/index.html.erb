@@ -3,11 +3,9 @@
 
 <% @games.each do |game| %>
 <% unless game.game_is_finished? %>
-    <div><%= link_to game.name, game %></div>
-    
-    <div><%= link_to game.player1.name, game if game.player1 %></div>
-  
-    <div><%= link_to game.player2.name, game if game.player2 %></div>
+    <div class="game_name"><%= link_to game.name, game %></div>
+    <div class="game_player1_name"><%= link_to game.player1.name, game if game.player1 %></div>
+    <div class="game_player2_name"><%= link_to game.player2.name, game if game.player2 %></div>
 
 <% end %>
 <% end %>
@@ -21,12 +19,11 @@
 <% if game.game_is_finished? %>
     <div class="game_name"><%= link_to game.name, game %></div>
   
-    <div><%= link_to game.player1.name, game if game.player1 %></div>
+    <div class="game_player1_name"><%= link_to game.player1.name, game if game.player1 %></div>
  
-    <div><%= link_to game.player2.name, game if game.player2 %></div>
+    <div class="game_player2_name"><%= link_to game.player2.name, game if game.player2 %></div>
 
 <% end %>
 <% end %>
 </div>
-
 

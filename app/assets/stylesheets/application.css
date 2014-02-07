@@ -181,7 +181,7 @@ input {
   height: 100px;
 }
 
-/*#current {
+#current {
   vertical-align: top;
   width: 50%;
   display: inline-block;
@@ -194,6 +194,12 @@ input {
 
 #finished a {
   text-decoration: none;
+  color: #343642;
+}
+
+#current a {
+  text-decoration: none;
+  color: #343642;
 }
 
 .game_name {
@@ -201,17 +207,7 @@ input {
   margin: 20px 0 10px 0;
 }
 
-.game_player1 {
-  display: inline-block;
-  width: 60px;
-}
-
 .game_player1_name {
-  display: inline-block;
-  width: 60px;
-}
-
-.game_player2 {
   display: inline-block;
   width: 60px;
 }
@@ -219,7 +215,7 @@ input {
 .game_player2_name {
   display: inline-block;
   width: 60px;
-}*/
+}
 
 
 
