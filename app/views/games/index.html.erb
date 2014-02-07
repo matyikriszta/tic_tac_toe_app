@@ -1,27 +1,29 @@
-<div id="current">
+<div id="finished">
 <h2>Current games</h2> 
 
-
 <% @games.each do |game| %>
-<% if game.game_is_finished? %>
-    <div class="game_name"><%= link_to game.name, game %></div>
-    <div class="game_player1"><%= link_to image_tag(game.player1.player_image.thumb.url), game.player1 %></div>
-    <div class="game_player2"><%= link_to image_tag(game.player2.player_image.thumb.url), game.player2 %></div>
-    <div class="game_edit"><%= link_to 'Edit', edit_game_path(game) %></div>
+<% unless game.game_is_finished? %>
+    <div><%= link_to game.name, game %></div>
+    
+    <div><%= link_to game.player1.name, game if game.player1 %></div>
+  
+    <div><%= link_to game.player2.name, game if game.player2 %></div>
 
 <% end %>
 <% end %>
 </div>
 
-<div id="finished">
+<div id="current">
 <h2>Finished games</h2> 
 
+
 <% @games.each do |game| %>
-<% unless game.game_is_finished? %>
+<% if game.game_is_finished? %>
     <div class="game_name"><%= link_to game.name, game %></div>
-    <div class="game_player1"><%= link_to image_tag(game.player1.player_image.thumb.url), game.player1 %></div>
-    <div class="game_player2"><%= link_to image_tag(game.player2.player_image.thumb.url), game.player2 %></div>
-    <div class="game_edit"><%= link_to 'Edit', edit_game_path(game) %></div>
+  
+    <div><%= link_to game.player1.name, game if game.player1 %></div>
+ 
+    <div><%= link_to game.player2.name, game if game.player2 %></div>
 
 <% end %>
 <% end %>

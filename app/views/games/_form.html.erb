@@ -15,9 +15,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.hidden_field :player1_id, :value => current_user.name %>
-  </div>
+
   <div class="field">
     <%= f.label :player2_id, "Choose your opponent:" %><br />
     <%= f.select(:player2_id, Player.all.collect {|player| [ player.name, player.id ] }) %>
